@@ -22,7 +22,7 @@ class Poke_testeModalBottonSheet {
       builder: (BuildContext context) {
         return Container(
           decoration: BoxDecoration(
-            color: color ?? Poke_testeColors.theme.gray.light,
+            color: color ?? Poke_Teste_Colors.theme.gray.light,
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(16),
               topRight: Radius.circular(16),

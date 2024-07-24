@@ -69,6 +69,16 @@ class HomenIteractor extends ValueNotifier<HomeEntity> {
     }
   }
 
+  void filterBySearch() {
+    value.pokemonsSearch.clear();
+    for (var el in value.pokemons) {
+      if (el.name! == value.searchBar.text) {
+        value.pokemonsSearch.add(el);
+      }
+    }
+    notifyListeners();
+  }
+
   Future<void> addFavorite(String text) async {
     value.favorites.add(text);
     await localStorage.startLocalStorageBox();

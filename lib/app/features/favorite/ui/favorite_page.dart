@@ -68,12 +68,12 @@ class _FavoritePageState extends State<FavoritePage> {
               if (loading) CardSkeleton(),
               if (!loading) CardList(),
               Poke_testeFooterMenu(
-                isCapituredActive: false,
+                isCapturedActive: false,
                 isFavoriteActive: true,
                 isPokedexActive: false,
                 isProfileActive: false,
                 onFavoriteAction: () {},
-                onCapituredACtion: () {
+                onCapturedACtion: () {
                   widget.favoriteInteractor.goToCaptured();
                 },
                 onPokedexAction: () {

@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:poke_teste/app/style/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -23,7 +25,8 @@ class Poke_testeInputBase extends StatelessWidget {
   final int? maxLength;
   final int? expandedInputLines;
 
-  Poke_testeInputBase({
+  const Poke_testeInputBase({
+    super.key,
     required this.textController,
     required this.keyboardType,
     required this.placeholder,
@@ -56,7 +59,7 @@ class Poke_testeInputBase extends StatelessWidget {
           autofocus: autoFocus,
           enableSuggestions: enableSuggestions,
           autocorrect: autoCorrect,
-          cursorColor: Poke_testeColors.theme.gray.strong,
+          cursorColor: Poke_Teste_Colors.theme.gray.strong,
           maxLines: expandedInputLines ?? 1,
           cursorHeight: 20,
           maxLength: maxLength,
@@ -66,7 +69,7 @@ class Poke_testeInputBase extends StatelessWidget {
             filled: true,
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
-                color: Poke_testeColors.theme.pink.strong,
+                color: Poke_Teste_Colors.theme.pink.strong,
               ),
             ),
             border: const OutlineInputBorder(),
@@ -75,17 +78,17 @@ class Poke_testeInputBase extends StatelessWidget {
             fillColor: const Color(0xFFFFFFFF),
             hintText: placeholder,
             counterStyle: GoogleFonts.poppins(
-              color: Poke_testeColors.theme.gray.medium,
+              color: Poke_Teste_Colors.theme.gray.medium,
               fontWeight: FontWeight.w400,
             ),
             hintStyle: GoogleFonts.poppins(
-              color: Poke_testeColors.theme.gray.medium,
+              color: Poke_Teste_Colors.theme.gray.medium,
               fontSize: fontSize ?? 16,
               fontWeight: FontWeight.w400,
             ),
           ),
           style: GoogleFonts.poppins(
-            color: Poke_testeColors.theme.gray.strong,
+            color: Poke_Teste_Colors.theme.gray.strong,
             fontSize: fontSize ?? 16,
             fontWeight: FontWeight.w400,
           ),

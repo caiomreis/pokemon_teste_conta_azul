@@ -5,7 +5,8 @@ import 'package:flutter_value_notifier/flutter_value_notifier.dart';
 import 'package:poke_teste/app/features/home/data/Ihome_list_ds.dart';
 import 'package:poke_teste/app/features/home/interactor/home_entity.dart';
 import 'package:poke_teste/app/features/home/interactor/home_interceptor.dart';
-import 'package:poke_teste/app/widgets/button/button.dart';
+import 'package:poke_teste/app/widgets/input/search_input.dart';
+import 'package:poke_teste/app/widgets/network_checker_widget.dart';
 import 'package:poke_teste/app/widgets/poke_teste_footer_menu/poke_teste_footer_menu.dart';
 import 'package:poke_teste/app/widgets/pokemon_card.dart';
 import 'package:poke_teste/app/widgets/pokemon_card_skeleton.dart';
@@ -31,7 +32,9 @@ class _HomePageState extends State<HomePage> {
     widget.homeInteractor.getList();
     widget.homeInteractor.addListener(() {
       setState(() {
-        pokemons = widget.homeInteractor.value.pokemons;
+        pokemons = widget.homeInteractor.value.searchBar.text.isNotEmpty
+            ? widget.homeInteractor.value.pokemonsSearch
+            : widget.homeInteractor.value.pokemons;
         loading = widget.homeInteractor.value.loading;
         favorites = widget.homeInteractor.value.favorites;
         captured = widget.homeInteractor.value.captured;
@@ -43,54 +46,76 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     context.watch<HomenIteractor>();
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: const Color(0xFFFFFFFF),
-        body: AnimatedContainer(
-          duration: const Duration(milliseconds: 1000),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 18,
+    return NetworkChecker(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            width: MediaQuery.of(context).size.width,
+            padding: const EdgeInsets.symmetric(
+              horizontal: 12,
+              vertical: 18,
+            ),
+            decoration: const BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  color: Color(0XFFd3d3d3),
+                  width: 1,
                 ),
-                decoration: const BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(
-                      color: Color(0XFFd3d3d3),
-                      width: 1,
-                    ),
-                  ),
-                ),
-                child: Headline.bold(text: 'Pokédex'),
               ),
-              const SizedBox(
-                height: 24,
-              ),
-              if (loading) CardSkeleton(),
-              if (!loading) CardList(),
-              Poke_testeFooterMenu(
-                isCapituredActive: false,
-                isFavoriteActive: false,
-                isPokedexActive: true,
-                isProfileActive: false,
-                onFavoriteAction: () {
-                  widget.homeInteractor.goToFavorite();
-                },
-                onCapituredACtion: () {
-                  widget.homeInteractor.goToCaptured();
-                },
-                onPokedexAction: () {},
-                onProfileAction: () {},
-              )
-            ],
+            ),
+            child: Headline.bold(text: 'Pokédex'),
           ),
-        ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: SearchInput(
+              onChange: (String value) {},
+              onSubmit: () {
+                widget.homeInteractor.filterBySearch();
+              },
+              placeholder: 'Procure seu pokémon!',
+              textEditingController: widget.homeInteractor.value.searchBar,
+            ),
+          ),
+          if (!loading && pokemons.isEmpty) EmpatyContent(),
+          if (loading) CardSkeleton(),
+          if (!loading && pokemons.isNotEmpty) CardList(),
+          Poke_testeFooterMenu(
+            isCapturedActive: false,
+            isFavoriteActive: false,
+            isPokedexActive: true,
+            isProfileActive: false,
+            onFavoriteAction: () {
+              widget.homeInteractor.goToFavorite();
+            },
+            onCapturedACtion: () {
+              widget.homeInteractor.goToCaptured();
+            },
+            onPokedexAction: () {},
+            onProfileAction: () {},
+          )
+        ],
       ),
+    );
+  }
+
+  Widget EmpatyContent() {
+    return Expanded(
+      child: Center(
+          child: SingleChildScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/png/not_found.png'),
+            const SizedBox(
+              height: 24,
+            ),
+            Headline.bold(text: 'Que pokemon é esse?')
+          ],
+        ),
+      )),
     );
   }
 
@@ -137,17 +162,6 @@ class _HomePageState extends State<HomePage> {
                         ),
                       );
                     },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Poke_testeButton(
-                      isLoading: loadingButton,
-                      text: 'Carregar mais',
-                      onPress: () {
-                        context.read<HomenIteractor>().getMorePokemons();
-                        widget.homeInteractor.getMorePokemons();
-                      },
-                    ),
                   ),
                 ],
               );

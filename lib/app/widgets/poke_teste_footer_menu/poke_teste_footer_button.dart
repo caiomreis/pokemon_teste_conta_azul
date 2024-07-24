@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:poke_teste/app/widgets/text/label/label.dart';
 import 'package:poke_teste/app/style/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -31,8 +33,8 @@ class Poke_testeFooterButton extends StatelessWidget {
             side: BorderSide(
               width: 1,
               color: isActive
-                  ? Poke_testeColors.theme.red.medium
-                  : Poke_testeColors.theme.neutral.white,
+                  ? Poke_Teste_Colors.theme.red.medium
+                  : Poke_Teste_Colors.theme.neutral.white,
             ),
             borderRadius: BorderRadius.circular(12),
           ),
@@ -47,8 +49,8 @@ class Poke_testeFooterButton extends StatelessWidget {
               height: 16,
               child: Poke_testeIcon(
                 color: isActive
-                    ? Poke_testeColors.theme.red.medium
-                    : Poke_testeColors.theme.gray.strong,
+                    ? Poke_Teste_Colors.theme.red.medium
+                    : Poke_Teste_Colors.theme.gray.strong,
                 icon: icon,
                 width: 18,
                 height: 18,
@@ -57,8 +59,8 @@ class Poke_testeFooterButton extends StatelessWidget {
             Label.bold(
               text: label,
               color: isActive
-                  ? Poke_testeColors.theme.red.medium
-                  : Poke_testeColors.theme.gray.base,
+                  ? Poke_Teste_Colors.theme.red.medium
+                  : Poke_Teste_Colors.theme.gray.base,
             )
           ],
         ),

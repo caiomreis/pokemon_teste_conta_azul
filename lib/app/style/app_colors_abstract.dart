@@ -98,6 +98,7 @@ class AppBasicColors implements AppBasicColorsBase {
     required this.black,
   });
 
+  @override
   AppBasicColorsBase copyWith({
     Color? white,
     Color? black,
@@ -125,6 +126,7 @@ class AppColorStatus implements AppBasicColorStatus {
     required this.waring,
   });
 
+  @override
   AppBasicColorStatus copyWith({
     Color? success,
     Color? error,

@@ -14,7 +14,8 @@ class EmailInput extends StatelessWidget {
   final bool? readOnly;
   final FocusNode? focusNode;
 
-  EmailInput({
+  const EmailInput({
+    super.key,
     required this.textEditingController,
     required this.placeholder,
     required this.onChange,

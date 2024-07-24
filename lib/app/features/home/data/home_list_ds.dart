@@ -3,7 +3,8 @@ import 'package:poke_teste/app/repository/poke_teste_http.dart';
 
 class HomeListDataSource extends PokeTesteHttpRepository {
   Future<IHomeListDataSource> getPokemonList() async {
-    final response = await get('https://pokeapi.co/api/v2/pokemon?limit=20');
+    final response =
+        await get('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0.');
     IHomeListDataSource data = IHomeListDataSource.fromJson(response);
     return data;
   }

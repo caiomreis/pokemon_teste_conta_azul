@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:poke_teste/app/widgets/input/poke_teste_input_base.dart';
+import '../../style/poke_teste_icons.dart';
 
-import 'poke_teste_input_base.dart';
-
-class MessageTextbox extends StatelessWidget {
+class SearchInput extends StatelessWidget {
   final TextEditingController textEditingController;
   final Function(String value) onChange;
   final Function() onSubmit;
@@ -10,10 +11,10 @@ class MessageTextbox extends StatelessWidget {
   final Widget? suffixIcon;
   final double? fontSize;
   final TextStyle? textStyle;
-  final bool? readOnly;
   final FocusNode? focusNode;
 
-  MessageTextbox({
+  const SearchInput({
+    super.key,
     required this.textEditingController,
     required this.placeholder,
     required this.onChange,
@@ -21,7 +22,6 @@ class MessageTextbox extends StatelessWidget {
     this.suffixIcon,
     this.fontSize,
     this.textStyle,
-    this.readOnly,
     this.focusNode,
   });
 
@@ -29,13 +29,17 @@ class MessageTextbox extends StatelessWidget {
   Widget build(BuildContext context) {
     return Poke_testeInputBase(
       autoFocus: false,
-      autoCorrect: true,
+      inputFormater: [FilteringTextInputFormatter.singleLineFormatter],
       keyboardType: TextInputType.text,
       onChange: (value) => onChange(value),
       onSubmit: () => onSubmit(),
       placeholder: placeholder,
       textController: textEditingController,
-      expandedInputLines: 3,
+      suffixIcon: const Poke_testeIcon(
+        icon: Poke_testeIconsEnum.pokebola,
+        width: 37,
+        height: 25,
+      ),
     );
   }
 }

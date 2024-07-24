@@ -7,21 +7,21 @@ import 'package:poke_teste/app/widgets/poke_teste_footer_menu/poke_teste_footer_
 
 class Poke_testeFooterMenu extends StatelessWidget {
   final VoidCallback onPokedexAction;
-  final VoidCallback onCapituredACtion;
+  final VoidCallback onCapturedACtion;
   final VoidCallback onFavoriteAction;
   final VoidCallback onProfileAction;
   final bool isPokedexActive;
-  final bool isCapituredActive;
+  final bool isCapturedActive;
   final bool isFavoriteActive;
   final bool isProfileActive;
   const Poke_testeFooterMenu({
     super.key,
     required this.onPokedexAction,
-    required this.onCapituredACtion,
+    required this.onCapturedACtion,
     required this.onFavoriteAction,
     required this.onProfileAction,
     required this.isPokedexActive,
-    required this.isCapituredActive,
+    required this.isCapturedActive,
     required this.isFavoriteActive,
     required this.isProfileActive,
   });
@@ -29,7 +29,7 @@ class Poke_testeFooterMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Poke_testeColors.theme.neutral.white,
+      color: Poke_Teste_Colors.theme.neutral.white,
       height: 93,
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       child: Row(
@@ -45,21 +45,15 @@ class Poke_testeFooterMenu extends StatelessWidget {
           ),
           Poke_testeFooterButton(
             icon: Poke_testeIconsEnum.pin,
-            isActive: isCapituredActive,
+            isActive: isCapturedActive,
             label: 'Pegos',
-            onAction: onCapituredACtion,
+            onAction: onCapturedACtion,
           ),
           Poke_testeFooterButton(
             icon: Poke_testeIconsEnum.heart,
             isActive: isFavoriteActive,
             label: 'Favoritos',
             onAction: onFavoriteAction,
-          ),
-          Poke_testeFooterButton(
-            icon: Poke_testeIconsEnum.profile,
-            isActive: isProfileActive,
-            label: 'Perfil',
-            onAction: onProfileAction,
           ),
         ],
       ),

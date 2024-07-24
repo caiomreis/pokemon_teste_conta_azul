@@ -23,7 +23,7 @@ class PokemonCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Modular.to.navigate('/pokemon_details/');
+        Modular.to.navigate('/pokemon_details/$name');
       },
       child: Container(
         height: 43,
@@ -38,7 +38,15 @@ class PokemonCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Body.bold(text: name),
+            Flexible(
+              child: Container(
+                padding: const EdgeInsets.only(right: 13.0),
+                child: Body.bold(
+                  text: name,
+                  overflow: TextOverflow.fade,
+                ),
+              ),
+            ),
             SizedBox(
               width: 16,
               height: 16,
@@ -47,8 +55,8 @@ class PokemonCard extends StatelessWidget {
                   onFavoriteAction();
                 },
                 color: isFavorite
-                    ? Poke_testeColors.theme.red.medium
-                    : Poke_testeColors.theme.gray.strong,
+                    ? Poke_Teste_Colors.theme.red.medium
+                    : Poke_Teste_Colors.theme.gray.strong,
                 icon: isFavorite
                     ? Poke_testeIconsEnum.heart_filled
                     : Poke_testeIconsEnum.heart,
@@ -64,8 +72,8 @@ class PokemonCard extends StatelessWidget {
                   onCapturedAction();
                 },
                 color: isCaptured
-                    ? Poke_testeColors.theme.red.medium
-                    : Poke_testeColors.theme.gray.strong,
+                    ? Poke_Teste_Colors.theme.red.medium
+                    : Poke_Teste_Colors.theme.gray.strong,
                 icon: Poke_testeIconsEnum.pokebola,
                 width: 18,
                 height: 18,

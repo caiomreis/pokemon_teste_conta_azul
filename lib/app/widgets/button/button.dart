@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:poke_teste/app/style/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -76,8 +78,8 @@ class Poke_testeButton extends StatelessWidget {
         backgroundColor: MaterialStateProperty.resolveWith((states) {
           if (states.contains(MaterialState.pressed) && !disable!) {
             return color == ButtonColorEnum.blue
-                ? Poke_testeColors.theme.blue.light
-                : Poke_testeColors.theme.red.strong;
+                ? Poke_Teste_Colors.theme.blue.light
+                : Poke_Teste_Colors.theme.red.strong;
           }
 
           return _backgroundColor();
@@ -125,20 +127,22 @@ class Poke_testeButton extends StatelessWidget {
     if (color == ButtonColorEnum.blue && disable!) {
       return const Color.fromRGBO(172, 181, 189, 1);
     }
-    if (color == ButtonColorEnum.blue) return Poke_testeColors.theme.blue.base;
+    if (color == ButtonColorEnum.blue) return Poke_Teste_Colors.theme.blue.base;
 
     if (disable!) return const Color(0x7FFC7048);
-    return Poke_testeColors.theme.neutral.white;
+    return Poke_Teste_Colors.theme.neutral.white;
   }
 
   Color _backgroundColor() {
     if (color == ButtonColorEnum.blue && disable!) {
       return const Color.fromRGBO(192, 192, 192, 0.15);
     }
-    if (color == ButtonColorEnum.blue) return Poke_testeColors.theme.blue.light;
+    if (color == ButtonColorEnum.blue) {
+      return Poke_Teste_Colors.theme.blue.light;
+    }
 
     if (disable!) return const Color(0xFFFFF5F5);
-    return Poke_testeColors.theme.red.medium;
+    return Poke_Teste_Colors.theme.red.medium;
   }
 
   Widget _buttonIcons() {

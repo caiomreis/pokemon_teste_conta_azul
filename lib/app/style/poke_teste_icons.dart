@@ -1,18 +1,8 @@
-// ignore_for_file: deprecated_member_use
+// ignore_for_file: deprecated_member_use, camel_case_types, constant_identifier_names, camel_case_extensions
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-/// Para adicionar novos ícones, faça:
-///
-/// 1 - Adicione o SVG na pasta de [assets/icons], com o nome do
-/// arquivo no padrão snake_case e a imagem sem bordas;
-///
-/// 2 - Adicione o item no enum [Poke_testeIconsEnum] com o nome do arquivo
-/// no padrão camelCase;
-///
-/// 3 - Adicione aos switchs da extensão [Poke_testeIconsEnumExtension] como
-/// resolver cada tamanho de ícone.
 enum Poke_testeIconsEnum {
   logo,
   user,

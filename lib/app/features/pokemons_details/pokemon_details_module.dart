@@ -20,12 +20,12 @@ class PokemonDetailsModule extends Module {
   @override
   List<ModularRoute> get routes => [
         ChildRoute(
-          '/',
+          '/:name',
           child: (context, args) => ValueNotifierProvider(
             create: (_) => PokemonDetailsnIteractor(),
             child: PokemonDetailsPage(
               pokemondetailsInteractor: Modular.get<PokemonDetailsnIteractor>(),
-              name: 'ditto',
+              name: args.params['name'],
             ),
           ),
         ),

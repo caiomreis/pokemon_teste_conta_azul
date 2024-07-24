@@ -124,7 +124,7 @@ class Body extends StatelessWidget {
       overflow: overflow ?? TextOverflow.ellipsis,
       maxLines: maxLines ?? 12,
       style: GoogleFonts.poppins(
-        color: color ?? Poke_testeColors.theme.gray.strong,
+        color: color ?? Poke_Teste_Colors.theme.gray.strong,
         fontSize: fontSize ?? 14,
         height: height ?? 1.40,
         fontWeight: fontWeight ?? FontWeight.w400,

@@ -12,11 +12,13 @@ class Poke_testeCachedImage extends StatelessWidget {
   final String? label;
 
   const Poke_testeCachedImage({
+    super.key,
     this.imageUrl,
     required this.heigth,
     required this.width,
     this.label,
   });
+  @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
@@ -39,7 +41,7 @@ class Poke_testeCachedImage extends StatelessWidget {
           height: heigth,
           width: width,
           decoration: BoxDecoration(
-            color: Poke_testeColors.theme.neutral.white,
+            color: Poke_Teste_Colors.theme.neutral.white,
             image: DecorationImage(
               image: imageProvider,
               fit: BoxFit.contain,
@@ -58,11 +60,11 @@ class Poke_testeCachedImage extends StatelessWidget {
     return Container(
       height: heigth,
       width: width,
-      color: Poke_testeColors.theme.red.medium,
+      color: Poke_Teste_Colors.theme.red.medium,
       child: Center(
         child: Label.bold(
           text: resume,
-          color: Poke_testeColors.theme.neutral.white,
+          color: Poke_Teste_Colors.theme.neutral.white,
         ),
       ),
     );

@@ -60,7 +60,7 @@ class _CapturedPageState extends State<CapturedPage> {
                     ),
                   ),
                 ),
-                child: Headline.bold(text: 'Capiturados'),
+                child: Headline.bold(text: 'Capturados'),
               ),
               const SizedBox(
                 height: 24,
@@ -68,14 +68,14 @@ class _CapturedPageState extends State<CapturedPage> {
               if (loading) CardSkeleton(),
               if (!loading) CardList(),
               Poke_testeFooterMenu(
-                isCapituredActive: true,
+                isCapturedActive: true,
                 isFavoriteActive: false,
                 isPokedexActive: false,
                 isProfileActive: false,
                 onFavoriteAction: () {
                   widget.capturedInteractor.goToFavorite();
                 },
-                onCapituredACtion: () {},
+                onCapturedACtion: () {},
                 onPokedexAction: () {
                   widget.capturedInteractor.goToHome();
                 },

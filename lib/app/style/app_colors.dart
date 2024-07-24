@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 import 'package:poke_teste/app/style/app_colors_abstract.dart';
 import 'package:flutter/services.dart';
 
@@ -81,15 +83,15 @@ class _AppColorsThemeBase implements AppColorsTheme {
 extension AppColorsExtension on AppColorsTheme {
   SystemUiOverlayStyle get systemUiOverlayStyle {
     return SystemUiOverlayStyle.dark.copyWith(
-      statusBarColor: Poke_testeColors.theme.pink.base,
+      statusBarColor: Poke_Teste_Colors.theme.pink.base,
       statusBarIconBrightness: Brightness.dark,
       statusBarBrightness: Brightness.light,
-      systemNavigationBarColor: Poke_testeColors.theme.neutral.white,
+      systemNavigationBarColor: Poke_Teste_Colors.theme.neutral.white,
       systemNavigationBarIconBrightness: Brightness.dark,
     );
   }
 }
 
-class Poke_testeColors {
+class Poke_Teste_Colors {
   static final AppColorsTheme theme = _AppColorsThemeBase();
 }

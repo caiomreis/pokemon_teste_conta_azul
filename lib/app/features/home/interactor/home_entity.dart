@@ -4,6 +4,7 @@ import 'package:poke_teste/app/features/home/data/Ihome_list_ds.dart';
 class HomeEntity {
   TextEditingController searchBar = TextEditingController();
   List<Results> pokemons = [];
+  List<Results> pokemonsSearch = [];
   bool loading = true;
   bool loadingButton = false;
   bool error = false;

@@ -102,7 +102,7 @@ class Label extends StatelessWidget {
       overflow: overflow ?? TextOverflow.ellipsis,
       maxLines: maxLines ?? 12,
       style: GoogleFonts.poppins(
-        color: color ?? Poke_testeColors.theme.gray.strong,
+        color: color ?? Poke_Teste_Colors.theme.gray.strong,
         fontSize: 12,
         fontWeight: fontWeight ?? FontWeight.w400,
         letterSpacing: letterSpacing,

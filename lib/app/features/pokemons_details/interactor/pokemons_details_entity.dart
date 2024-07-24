@@ -6,9 +6,7 @@ class PokemonDetailsEntity {
   IPokemonDetailsListDataSource pokemon_detail =
       IPokemonDetailsListDataSource();
   bool loading = true;
-  bool loadingButton = false;
   bool error = false;
   List<String> favorites = [];
   List<String> captured = [];
-  int offset = 20;
 }

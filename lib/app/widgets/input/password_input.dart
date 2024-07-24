@@ -14,7 +14,8 @@ class PasswordInput extends StatelessWidget {
   final bool obscureText;
   final FocusNode? focusNode;
 
-  PasswordInput({
+  const PasswordInput({
+    super.key,
     required this.textEditingController,
     required this.placeholder,
     required this.onChange,
